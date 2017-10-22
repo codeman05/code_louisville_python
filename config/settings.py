@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'orders',
 ]
 
@@ -127,4 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'     # Compression and Caching Support.
+
+# Nicer forms.
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
