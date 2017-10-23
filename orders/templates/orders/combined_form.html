@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ form.instance.job_number|default:"Order Form" }}{% endblock %}
+{% block title %}Combined Form{% endblock %}
 
 {% block content %}
-<h2>{{ form.instance.job_number|default:"Order Form" }}</h2>
+<h2>Combined Form</h2>
 
 <div class="container">
     <form class="form" method="POST">
         {% csrf_token %}
-        {{ form|crispy }}
+        <fieldset>
+            {{ order_form|crispy }}
+        </fieldset>
+        <fieldset>
+            {{ test_form|crispy }}
+        </fieldset>
         <input type="submit" value="Submit" class="btn btn-info">
     </form>
 </div>

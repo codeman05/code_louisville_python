@@ -22,7 +22,7 @@
                 <td>{{ order.name }}</td>
                 <td>{{ order.email }}</td>
                 <td>
-                    <a href="{% url 'orders:form' %}{{ order.pk }}">Edit</a> | <a href="#">Delete</a>
+                    <a href="{% url 'orders:edit' order_pk=order.pk %}" class="btn btn-info">Edit</a>  <a href="{% url 'orders:delete' order_pk=order.pk %}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             {% endfor %}

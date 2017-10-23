@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Delete Order</h2>
+<div class="container">
+    <p>Are you sure you want to delete this order?</p>
+    <p>{{ order.job_number }}</p>
+    <button type="submit">Yes</button>
+    <button type="submit">No</button>
+</div>
+
+{% endblock %}

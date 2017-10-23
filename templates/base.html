@@ -15,7 +15,8 @@
     <body>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'orders:form' %}">Order Form</a></li>
+            <li><a href="{% url 'orders:create' %}">Order Form</a></li>
+            <li><a href="{% url 'orders:form' %}">Combined Form</a></li>
             <li><a href="{% url 'orders:list' %}">Order List</a></li>
         </ul>
         {% block navigation %}{% endblock %}
