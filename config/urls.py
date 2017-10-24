@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.SiteHomepageView.as_view(), name='home'),
     url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'^test-requests/', include('testrequests.urls', namespace='tests')),
 ]
