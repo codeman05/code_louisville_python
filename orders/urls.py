@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'create/$', views.create_order, name='create'),
     url(r'edit/(?P<order_pk>\d+)/$', views.edit_order, name='edit'),
     url(r'delete/(?P<order_pk>\d+)/$', views.delete_order, name='delete'),
-    url(r'combined_form/', views.combined_form, name='form'),
 ]

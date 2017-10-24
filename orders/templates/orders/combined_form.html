@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Combined Form{% endblock %}
+{% block title %}Order Form{% endblock %}
 
 {% block content %}
-<h2>Combined Form</h2>
+<h2>Order Form</h2>
 
 <div class="container">
     <form class="form" method="POST">
         {% csrf_token %}
         <fieldset>
+            <legend>General Details</legend>
             {{ order_form|crispy }}
         </fieldset>
         <fieldset>
+            <legend>Test Details</legend>
             {{ test_form|crispy }}
         </fieldset>
         <input type="submit" value="Submit" class="btn btn-info">
