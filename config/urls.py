@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.site_homepage, name='home'),
+    url(r'^$', views.SiteHomepageView.as_view(), name='home'),
     url(r'^orders/', include('orders.urls', namespace='orders')),
 ]

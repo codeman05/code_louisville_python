@@ -15,9 +15,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for order in orders %}
+            {% for order in order_list %}
             <tr>
-                <td>{{ order.job_number }}</td>
+                <td><a href="">{{ order.job_number }}</a></td>
                 <td>{{ order.company }}</td>
                 <td>{{ order.name }}</td>
                 <td>{{ order.email }}</td>

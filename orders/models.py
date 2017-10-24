@@ -15,6 +15,9 @@ class Order(TimeStamp):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
 
+    class Meta:
+        ordering = ['job_number']
+
     def __str__(self):
         return self.job_number
 

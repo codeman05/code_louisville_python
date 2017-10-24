@@ -2,15 +2,16 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.views.generic import ListView
 
 from . import models
 from . import forms
 
 
 # @login_required
-def order_list(request):
-    orders = models.Order.objects.all()
-    return render(request, 'orders/order_list.html', {'orders': orders})
+class OrderList(ListView):
+    model = models.Order
+    template_name = 'order_list.html'
 
 
 # @login_required
