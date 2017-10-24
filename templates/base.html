@@ -19,6 +19,18 @@
             <li><a href="{% url 'orders:form' %}">Combined Form</a></li>
             <li><a href="{% url 'orders:list' %}">Order List</a></li>
         </ul>
+        {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+            <div data-alert class="alert-box {{ message.tags }} radius">
+                {{ message }}
+                <a href="#" class="close">&times;</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        </div>
         {% block navigation %}{% endblock %}
         {% block breadcrumbs %}{% endblock %}
         {% block content %}{% endblock %}

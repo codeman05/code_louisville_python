@@ -54,8 +54,8 @@ def edit_order(request, order_pk):
 # @login_required
 def delete_order(request, order_pk):
     order = get_object_or_404(models.Order, pk=order_pk)
-    #order.delete()
-    return render(request, 'orders/delete_order.html', {'order': order})
+    order.delete()
+    return HttpResponseRedirect(reverse('orders:list'))
 
 
 def combined_form(request):
@@ -66,20 +66,30 @@ def combined_form(request):
         test_form = forms.TestForm(request.POST)
         if order_form.is_valid() and test_form.is_valid():
             new_order = order_form.save(commit=False)
-            new_test = order_form.save(commit=False)
+            new_test = test_form.save(commit=False)
 
             # Process order form.
-            new_order.job_number = '17-1234'
             new_order.company = order_form.cleaned_data['company']
             new_order.name = order_form.cleaned_data['name']
             new_order.name = order_form.cleaned_data['email']
 
-            new_test.order = new_order.job_number
+            new_order.save()
+
+            # Create and format job number into acceptable format.
+            if len(str(new_order.id)) == 1:
+                new_order.job_number = '17-000' + str(new_order.id)
+            elif len(str(new_order.id)) == 2:
+                new_order.job_number = '17-00' + str(new_order.id)
+            elif len(str(new_order.id)) == 3:
+                new_order.job_number = '17-0' + str(new_order.id)
+            elif len(str(new_order.id)) == 4:
+                new_order.job_number = '17-' + str(new_order.id)
+
             new_test.test_type = test_form.cleaned_data['test_type']
             new_test.air_flow_rate = test_form.cleaned_data['air_flow_rate']
             new_test.filter_description = test_form.cleaned_data['filter_description']
 
             new_order.save()
-            new_test.save()
+            #new_test.save()
         return HttpResponseRedirect(reverse('orders:form'))
     return render(request, 'orders/combined_form.html', {'order_form': order_form, 'test_form': test_form})
