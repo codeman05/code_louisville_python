@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load testrequests_extras %}
+
+{% block title %}{% if not form.instance.pk %}Create Test Request{% else %}Edit Test Request {{ form.instance.pk }}{% endif %}{% endblock %}
+
+{% block breadcrumbs %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="#">Site Pages</a></li>
+    <li class="breadcrumb-item"><a href="#">Administration</a></li>
+    <li class="breadcrumb-item active">{% if not form.instance.pk %}Create Test Request{% else %}Edit Test Request {{ form.instance.pk }}{% endif %}</li>
+</ol>
+{% endblock %}
+
+{% block page_title %}{% if not form.instance.pk %}Create Test Request{% else %}Edit Test Request {{ form.instance.pk }}{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form" method="POST" action="">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Save" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

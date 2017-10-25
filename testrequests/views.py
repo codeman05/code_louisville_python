@@ -1,23 +1,67 @@
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 
 from . import models
 
 
 class TestListView(ListView):
+    template_name = 'testrequests/test_list_view_template.html'
     model = models.Test
 
 
 class TestDeleteView(DeleteView):
     model = models.Test
+    template_name = 'testrequests/test_confirm_delete.html'
     success_url = reverse_lazy('tests:list')
 
 
-# class TestDetailView(DetailView):
-#     model = models.Test
+class DepartmentCreateView(CreateView):
+    model = models.Department
+    template_name = 'testrequests/form_create_template.html'
+    fields = (
+        'name',
+        'manager',
+    )
+
+
+class EmployeeCreateView(CreateView):
+    model = models.Employee
+    template_name = 'testrequests/form_create_template.html'
+    fields = (
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'department',
+    )
+
+
+class CustomerCreateView(CreateView):
+    model = models.Customer
+    template_name = 'testrequests/form_create_template.html'
+    fields = (
+        'first_name',
+        'last_name',
+        'company',
+        'address',
+        'email',
+        'phone',
+    )
+
+
+class TestTypeCreateView(CreateView):
+    model = models.TestType
+    template_name = 'testrequests/form_create_template.html'
+    fields = (
+        'name',
+        'code',
+        'price',
+        'department',
+    )
 
 
 class TestCreateView(CreateView):
+    template_name = 'testrequests/form_create_template.html'
     model = models.Test
     fields = (
         'customer',
@@ -53,6 +97,7 @@ class TestCreateView(CreateView):
 
 
 class TestUpdateView(UpdateView):
+    template_name = 'testrequests/form_create_template.html'
     model = models.Test
     fields = (
         'customer',
@@ -85,3 +130,4 @@ class TestUpdateView(UpdateView):
         'adhesive_amount',
         'disposal',
     )
+

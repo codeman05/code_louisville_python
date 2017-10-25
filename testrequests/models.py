@@ -21,16 +21,22 @@ class Department(TimeStamp):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('home')
+
 
 class Employee(TimeStamp):
+    department = models.ForeignKey(Department)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField()
     phone = models.CharField(max_length=12, help_text='XXX-XXX-XXXX')
-    department = models.ForeignKey(Department)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Customer(TimeStamp):
@@ -38,10 +44,14 @@ class Customer(TimeStamp):
     last_name = models.CharField(max_length=30)
     company = models.CharField(max_length=30)
     email = models.EmailField()
+    address = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class TestType(TimeStamp):
@@ -52,6 +62,9 @@ class TestType(TimeStamp):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Filter(models.Model):

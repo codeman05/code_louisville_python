@@ -11,7 +11,7 @@ from . import forms
 # @login_required
 class OrderList(ListView):
     model = models.Order
-    template_name = 'test_list.html'
+    template_name = 'test_list_view_template.html'
 
 
 # @login_required
