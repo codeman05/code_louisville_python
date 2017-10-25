@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.conf import settings
 
@@ -56,7 +58,7 @@ class Filter(models.Model):
     manufacturer = models.CharField(max_length=30)
     model_number = models.CharField(max_length=30)
     part_number = models.CharField(max_length=30, blank=True, null=True)
-    type = models.CharField(max_length=30, blank=True, null=True)
+    filter_type = models.CharField(max_length=30, blank=True, null=True)
     date_code = models.CharField(max_length=30, blank=True, null=True)
     nominal_height = models.PositiveIntegerField(blank=True, null=True, help_text='inches')
     nominal_width = models.PositiveIntegerField(blank=True, null=True, help_text='inches')
@@ -67,10 +69,10 @@ class Filter(models.Model):
     adhesive_type = models.CharField(max_length=30, blank=True, null=True)
     adhesive_amount = models.CharField(max_length=30, blank=True, null=True)
     disposal = models.BooleanField(default=False)
-    barcode_number = models.CharField(default=qr_code.get_barcode, max_length=10, blank=True, null=True)
+    #barcode_number = models.CharField(default=qr_code.get_barcode, max_length=10, blank=True, null=True)
 
-    location = '/static/barcodes/{}.png'.format(barcode_number)
-    barcode_image = models.ImageField(default=location, blank=True, null=True)
+    #location = '/static/barcodes/{}.png'.format(barcode_number)
+    #barcode_image = models.ImageField(default=location, blank=True, null=True)
     #barcode_url = models.URLField(default=location, blank=True, null=True)
 
     class Meta:
@@ -82,7 +84,7 @@ class Test(TimeStamp, Filter):
     quote_number = models.CharField(max_length=30, blank=True, null=True)
     po_number = models.CharField(max_length=30, blank=True, null=True)
 
-    type = models.ForeignKey(TestType)
+    test_type = models.ForeignKey(TestType)
     air_flow_rate = models.PositiveIntegerField()
     ISO_FINE = 'IF'
     ISO_COARSE = 'IC'
@@ -112,6 +114,9 @@ class Test(TimeStamp, Filter):
             return "17-0{}".format(self.pk)
         if len(str(self.pk)) == 1:
             return "17-{}".format(self.pk)
+
+    def get_absolute_url(self):
+        return reverse('tests:list')
 
 
 

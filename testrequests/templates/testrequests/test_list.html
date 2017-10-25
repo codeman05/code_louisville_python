@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Order List</h2>
+<h2>Test Requests</h2>
 
 <div class="container">
     <table class="table">
@@ -18,13 +18,13 @@
         <tbody>
             {% for item in test_list %}
             <tr>
-                <td><a href="">{{ item.pk }}</a></td>
+                <td><a href="{% url 'tests:update' pk=item.pk %}">17-00{{ item.pk }}</a></td>
                 <td>{{ item.customer.company }}</td>
                 <td>{{ item.customer }}</td>
                 <td>{{ item.customer.email }}</td>
                 <td>{{ item.barcode_image }}</td>
                 <td>
-                    <a href="{% url 'tests:detail' pk=item.pk %}" class="btn btn-info">Edit</a>  <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'tests:update' pk=item.pk %}" class="btn btn-info">Edit</a>  <a href="{% url 'tests:delete' pk=item.pk %}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             {% endfor %}

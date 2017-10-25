@@ -1,34 +1,12 @@
 <!--{% extends 'base.html' %}-->
 
 {% block content %}
-<h2>Order List</h2>
+<h2>Detail View</h2>
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Job #</th>
-                <th>Company</th>
-                <th>Customer</th>
-                <th>Email</th>
-                <th>Barcode URL</th>
-                <th>Buttons</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in test_detail %}
-            <tr>
-                <td><a href="">{{ item.company }}</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="#" class="btn btn-info">Edit</a>  <a href="#" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% for item in object_list %}
+    <p>{{ item.company }}</p>
+    <p>{{ item.pk }}</p>
+{% endfor %}
 </div>
 {% endblock %}

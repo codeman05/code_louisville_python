@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>{% if not form.instance.pk %}Create Team{% else %}Edit {{ form.instance.pk }}{% endif %}</h2>
+
+<div class="container">
+    <form class="form" method="POST" action="">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="save" class="btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}
