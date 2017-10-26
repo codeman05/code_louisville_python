@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'orders',
+    'django_tables2',
+    'administration',
     'testrequests',
 ]
 

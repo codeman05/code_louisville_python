@@ -1,4 +1,4 @@
-
+    <!--<i class="fa fa-fw fa-file">-->
     <!-- Dashboard Link (should match title) -->
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
         <a class="nav-link" href="{% url 'home' %}">
@@ -7,54 +7,68 @@
         </a>
     </li>
 
-    <!-- Site Pages -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Site Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-file"></i>
-              <span class="nav-link-text">Site Pages</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-                <li><a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Administration</a>
-                    <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                        <li><a href="{% url 'tests:department' %}">New Department</a></li>
-                        <li><a href="{% url 'tests:employee' %}">New Employee</a></li>
-                        <li><a href="{% url 'tests:customer' %}">New Customer</a></li>
-                        <li><a href="{% url 'tests:test_type' %}">New Test Type</a></li>
-                        <li><a href="{% url 'tests:create' %}">New Test Request</a></li>
-                    </ul>
-                </li>
-                <li><a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti3">Test Requests</a>
-                    <ul class="sidenav-third-level collapse" id="collapseMulti3">
-                        <li><a href="{% url 'tests:list' %}">List</a></li>
-                    </ul>
-                </li>
-          </ul>
+    <!-- Administration Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administration">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAdministration" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-lock"></i>
+            <span class="nav-link-text">Administration</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseAdministration">
+            <li><a href="{% url 'administration:customer' %}">Create Customer</a></li>
+            <li><a href="{% url 'administration:test_type' %}">Create Test Type</a></li>
+            <li><a href="{% url 'administration:department' %}">Create Department</a></li>
+            <li><a href="{% url 'administration:employee' %}">Create Employee</a></li>
+        </ul>
     </li>
 
-    <!--&lt;!&ndash; Charts Link &ndash;&gt;-->
-    <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">-->
-        <!--<a class="nav-link" href="#">-->
-            <!--<i class="fa fa-fw fa-area-chart"></i>-->
-            <!--<span class="nav-link-text">Charts</span>-->
-        <!--</a>-->
-    <!--</li>-->
+    <!-- Orders Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseOrders" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-shopping-cart"></i>
+            <span class="nav-link-text">Orders</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseOrders">
+            <li><a href="{% url 'tests:create' %}">New</a></li>
+            <li><a href="{% url 'tests:list' %}">Database</a></li>
+        </ul>
+    </li>
 
-    <!--&lt;!&ndash; Test Requests Link &ndash;&gt;-->
-    <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">-->
-        <!--<a class="nav-link" href="#">-->
-            <!--<i class="fa fa-fw fa-table"></i>-->
-            <!--<span class="nav-link-text">Test Request List</span>-->
-        <!--</a>-->
-    <!--</li>-->
+    <!-- Tables Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTables" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Tables</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseTables">
+            <li><a href="{% url 'administration:department_list' %}">Departments</a></li>
+            <li><a href="{% url 'administration:employee_list' %}">Employees</a></li>
+            <li><a href="{% url 'administration:customer_list' %}">Customers</a></li>
+            <li><a href="{% url 'administration:test_type_list' %}">Test Types</a></li>
+        </ul>
+    </li>
 
-    <!-- Components Link -->
+    <!-- External Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="External Links">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExternalLinks" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">External Links</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseExternalLinks">
+            <li><a href="#">Document Library</a></li>
+            <li><a href="#">Help Desk</a></li>
+            <li><a href="#">Website</a></li>
+        </ul>
+    </li>
+
+
+    <!-- Customize Settings -->
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
+            <span class="nav-link-text">Customization Settings</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li><a href="#">Navbar</a></li>
+            <li><a href="{% url 'customize' %}">Navbar</a></li>
             <li><a href="#">Cards</a></li>
         </ul>
     </li>
@@ -75,13 +89,7 @@
         <!--</ul>-->
     <!--</li>-->
 
-    <!-- Link Example Link -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-        <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-        </a>
-    </li>
+
 </ul>
 
 <!-- Navigation Expand/Collapse Button -->

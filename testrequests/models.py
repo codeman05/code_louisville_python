@@ -4,67 +4,7 @@ from django.db import models
 from django.conf import settings
 
 from . import qr_code
-
-
-class TimeStamp(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        abstract = True
-
-
-class Department(TimeStamp):
-    name = models.CharField(max_length=30, unique=True)
-    manager = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('home')
-
-
-class Employee(TimeStamp):
-    department = models.ForeignKey(Department)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField()
-    phone = models.CharField(max_length=12, help_text='XXX-XXX-XXXX')
-
-    def __str__(self):
-        return self.first_name + " " + self.last_name
-
-    def get_absolute_url(self):
-        return reverse('home')
-
-
-class Customer(TimeStamp):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    company = models.CharField(max_length=30)
-    email = models.EmailField()
-    address = models.CharField(max_length=100, blank=True, null=True)
-    phone = models.CharField(max_length=20, blank=True, null=True)
-
-    def __str__(self):
-        return self.first_name + " " + self.last_name
-
-    def get_absolute_url(self):
-        return reverse('home')
-
-
-class TestType(TimeStamp):
-    name = models.CharField(max_length=50)
-    code = models.CharField(max_length=7, blank=True, null=True)
-    price = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
-    department = models.ForeignKey(Department)
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return reverse('home')
+from administration.models import TimeStamp, Customer, TestType
 
 
 class Filter(models.Model):

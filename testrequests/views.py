@@ -5,8 +5,9 @@ from . import models
 
 
 class TestListView(ListView):
-    template_name = 'testrequests/test_list_view_template.html'
     model = models.Test
+    template_name = 'testrequests/test_list_view_template.html'
+    context_object_name = 'object_list'
 
 
 class TestDeleteView(DeleteView):
@@ -15,54 +16,9 @@ class TestDeleteView(DeleteView):
     success_url = reverse_lazy('tests:list')
 
 
-class DepartmentCreateView(CreateView):
-    model = models.Department
-    template_name = 'testrequests/form_create_template.html'
-    fields = (
-        'name',
-        'manager',
-    )
-
-
-class EmployeeCreateView(CreateView):
-    model = models.Employee
-    template_name = 'testrequests/form_create_template.html'
-    fields = (
-        'first_name',
-        'last_name',
-        'email',
-        'phone',
-        'department',
-    )
-
-
-class CustomerCreateView(CreateView):
-    model = models.Customer
-    template_name = 'testrequests/form_create_template.html'
-    fields = (
-        'first_name',
-        'last_name',
-        'company',
-        'address',
-        'email',
-        'phone',
-    )
-
-
-class TestTypeCreateView(CreateView):
-    model = models.TestType
-    template_name = 'testrequests/form_create_template.html'
-    fields = (
-        'name',
-        'code',
-        'price',
-        'department',
-    )
-
-
 class TestCreateView(CreateView):
-    template_name = 'testrequests/form_create_template.html'
     model = models.Test
+    template_name = 'testrequests/form_create_template.html'
     fields = (
         'customer',
         'quote_number',
@@ -97,8 +53,8 @@ class TestCreateView(CreateView):
 
 
 class TestUpdateView(UpdateView):
-    template_name = 'testrequests/form_create_template.html'
     model = models.Test
+    template_name = 'testrequests/form_create_template.html'
     fields = (
         'customer',
         'quote_number',

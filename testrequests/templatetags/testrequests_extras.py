@@ -9,6 +9,11 @@ def get_class_name(value):
 
 
 @register.filter
+def to_class_name(value):
+    return value.__class__.__name__
+
+
+@register.filter
 def format_job_number(value):
     if len(str(value)) == 1:
         return "17-000{}".format(value)
