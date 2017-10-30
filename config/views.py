@@ -5,13 +5,13 @@ from testrequests import models
 from testrequests import tables
 
 
-class SiteHomepageListView(ListView):
+class DashboardListView(ListView):
     model = models.Test
-    template_name = 'site_homepage.html'
+    template_name = 'dashboard.html'
     context_object_name = 'object_list'
 
     def get_context_data(self, **kwargs):
-        context = super(SiteHomepageListView, self).get_context_data(**kwargs)
+        context = super(DashboardListView, self).get_context_data(**kwargs)
         table = tables.TestRequestsTable(models.Test.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table

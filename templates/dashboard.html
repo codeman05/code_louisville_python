@@ -4,10 +4,12 @@
 {% load static %}
 
 {% block breadcrumbs %}
-    {% include 'partials/breadcrumbs.html' %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
 {% endblock %}
 
-<!-- ICON CARDS -->
+<!-- Icon Cards -->
 {% block icon_cards %}
     {% include 'partials/icon_cards.html' %}
 {% endblock %}
@@ -15,7 +17,7 @@
 {% block page_title %}<i class="fa fa-fw fa-dashboard"></i> Dashboard</i>{% endblock %}
 
 {% block content %}
-<!-- Example DataTables Card-->
+<!-- Orders Table -->
 <div class="card mb-3">
     <div class="card-header"><i class="fa fa-table"></i> Orders</div>
     <div class="card-body">
