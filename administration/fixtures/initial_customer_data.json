@@ -1,0 +1,62 @@
+[
+  {
+    "model": "administration.customer",
+    "pk": 1, 
+    "fields": {
+      "first_name": "Michael",
+      "last_name": "Jordan",
+      "company": "ABC Inc.",
+      "email": "mj@example.com",
+      "address": "",
+      "phone": ""
+    }
+  },
+  {
+    "model": "administration.customer",
+    "pk": 2, 
+    "fields": {
+      "first_name": "Lebron",
+      "last_name": "James",
+      "company": "CBS Inc.",
+      "email": "lj@example.com",
+      "address": "",
+      "phone": ""
+    }
+  },
+  {
+    "model": "administration.customer",
+    "pk": 3, 
+    "fields": {
+      "first_name": "Joe",
+      "last_name": "Nobody",
+      "company": "TBT Inc",
+      "email": "joe@example.com",
+      "address": "",
+      "phone": ""
+    }
+  },
+  {
+    "model": "administration.customer",
+    "pk": 4, 
+    "fields": {
+      "first_name": "Rob",
+      "last_name": "Stark",
+      "company": "HBG Inc.",
+      "email": "rob@example.com",
+      "address": "",
+      "phone": ""
+    }
+  },
+  {
+    "model": "administration.customer",
+    "pk": 5, 
+    "fields": {
+      "first_name": "Arya",
+      "last_name": "Stark",
+      "company": "NBS Inc.",
+      "email": "arya@example.com",
+      "address": "",
+      "phone": ""
+    }
+  }
+]

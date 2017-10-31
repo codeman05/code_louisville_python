@@ -21,7 +21,8 @@ class TestRequestsTable(tables.Table):
             'po_number',
             'test_type',
             'air_flow_rate',
-            'manufacturer'
+            'manufacturer',
+            'barcode_number',
         )
         attrs = {'id': 'dataTable', 'class': 'table table-bordered', 'width': '100%', 'cellspacing': '0'}
         empty_text = 'There are no results matching the search criteria'

@@ -1,0 +1,178 @@
+[
+  {
+    "model": "administration.employee",
+    "pk": 1, 
+    "fields": {
+      "department": "Industrial Lab",
+      "first_name": "Joe",
+      "last_name": "Koenig",
+      "email": "joe@blueheaventech.com",
+      "phone": "502-555-1111"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 2, 
+    "fields": {
+      "department": "Operations",
+      "first_name": "Connie",
+      "last_name": "Burkhead",
+      "email": "connie@blueheaventech.com",
+      "phone": "502-555-2222"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 3, 
+    "fields": {
+      "department": "Operations",
+      "first_name": "Raven",
+      "last_name": "Thomas",
+      "email": "raven@blueheaventech.com",
+      "phone": "502-555-3333"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 4, 
+    "fields": {
+      "department": "HVAC Lab",
+      "first_name": "Doug",
+      "last_name": "Pfeiffer",
+      "email": "doug@blueheaventech.com",
+      "phone": "502-555-4444"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 5, 
+    "fields": {
+      "department": "Operations",
+      "first_name": "Bob",
+      "last_name": "Burkhead",
+      "email": "bob@blueheaventech.com",
+      "phone": "502-555-5555"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 6, 
+    "fields": {
+      "department": "Special Projects Lab",
+      "first_name": "Glen",
+      "last_name": "Toloczko",
+      "email": "glen@blueheaventech.com",
+      "phone": "502-555-6666"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 7, 
+    "fields": {
+      "department": "Special Projects Lab",
+      "first_name": "Evan",
+      "last_name": "Sparks",
+      "email": "evan@blueheaventech.com",
+      "phone": "502-555-7777"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 8, 
+    "fields": {
+      "department": "Special Projects Lab",
+      "first_name": "Tyler",
+      "last_name": "Shoulders",
+      "email": "tyler@blueheaventech.com",
+      "phone": "502-555-8888"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 9, 
+    "fields": {
+      "department": "Operations",
+      "first_name": "Kenneth",
+      "last_name": "Brown",
+      "email": "kenneth@blueheaventech.com",
+      "phone": "502-555-9999"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 10, 
+    "fields": {
+      "department": "Special Projects Lab",
+      "first_name": "Nick",
+      "last_name": "Toloczko",
+      "email": "nick@blueheaventech.com",
+      "phone": "502-555-1010"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 11, 
+    "fields": {
+      "department": "Hvac Lab",
+      "first_name": "Bobby",
+      "last_name": "Singer",
+      "email": "bobby@blueheaventech.com",
+      "phone": "502-555-1112"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 12, 
+    "fields": {
+      "department": "Hvac Lab",
+      "first_name": "Simon",
+      "last_name": "Ladd",
+      "email": "simon@blueheaventech.com",
+      "phone": "502-555-1212"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 13, 
+    "fields": {
+      "department": "Hvac Lab",
+      "first_name": "Jack",
+      "last_name": "State",
+      "email": "jack@blueheaventech.com",
+      "phone": "502-555-1313"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 14, 
+    "fields": {
+      "department": "Hvac Lab",
+      "first_name": "Tom",
+      "last_name": "Singer",
+      "email": "tom@blueheaventech.com",
+      "phone": "502-555-1414"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 15, 
+    "fields": {
+      "department": "Industrial Lab",
+      "first_name": "Casey",
+      "last_name": "Powell",
+      "email": "casey@blueheaventech.com",
+      "phone": "502-555-1515"
+    }
+  },
+  {
+    "model": "administration.employee",
+    "pk": 16, 
+    "fields": {
+      "department": "Special Projects Lab",
+      "first_name": "Kevin",
+      "last_name": "Singer",
+      "email": "kevin@blueheaventech.com",
+      "phone": "502-555-1616"
+    }
+  },
+]

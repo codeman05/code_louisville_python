@@ -1,0 +1,42 @@
+[
+  {
+    "model": "administration.department",
+    "pk": 1,
+    "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
+      "name": "Operations",
+      "manager": "Bob Burkhead"
+    }
+  },
+  {
+    "model": "administration.department",
+    "pk": 2, 
+    "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
+      "name": "Industrial Lab",
+      "manager": "Joe Koenig"
+    }
+  },
+  {
+    "model": "administration.department",
+    "pk": 3, 
+    "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
+      "name": "Hvac Lab",
+      "manager": "Bobby Singer"
+    }
+  },
+  {
+    "model": "administration.department",
+    "pk": 4, 
+    "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
+      "name": "Special Projects Lab",
+      "manager": "Glen Toloczko"
+    }
+  }
+]

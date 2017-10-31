@@ -2,23 +2,20 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 
 from . import models
+from . import qr_code
 
 
-class TestListView(ListView):
-    model = models.Test
-    template_name = 'testrequests/test_list_view_template.html'
-    context_object_name = 'object_list'
-
-
-class TestDeleteView(DeleteView):
-    model = models.Test
-    template_name = 'testrequests/test_confirm_delete.html'
-    success_url = reverse_lazy('tests:list')
+########################################################################
+#                                                                      #
+# Create Views                                                         #
+#                                                                      #
+########################################################################
 
 
 class TestCreateView(CreateView):
     model = models.Test
     template_name = 'testrequests/form_create_template.html'
+    context_object_name = 'object_list'
     fields = (
         'customer',
         'quote_number',
@@ -50,6 +47,26 @@ class TestCreateView(CreateView):
         'adhesive_amount',
         'disposal',
     )
+
+
+########################################################################
+#                                                                      #
+# List (Read) Views                                                    #
+#                                                                      #
+########################################################################
+
+
+class TestListView(ListView):
+    model = models.Test
+    template_name = 'testrequests/test_list_view_template.html'
+    context_object_name = 'object_list'
+
+
+########################################################################
+#                                                                      #
+# Update Views                                                         #
+#                                                                      #
+########################################################################
 
 
 class TestUpdateView(UpdateView):
@@ -86,4 +103,18 @@ class TestUpdateView(UpdateView):
         'adhesive_amount',
         'disposal',
     )
+
+
+########################################################################
+#                                                                      #
+# Delete Views                                                         #
+#                                                                      #
+########################################################################
+
+
+class TestDeleteView(DeleteView):
+    model = models.Test
+    template_name = 'testrequests/test_confirm_delete.html'
+    success_url = reverse_lazy('tests:list')
+
 

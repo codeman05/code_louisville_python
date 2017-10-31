@@ -6,10 +6,9 @@
 
 {% block breadcrumbs %}
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'home' %}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="#">Administration</a></li>
-    <li class="breadcrumb-item"><a href="#">Create</a></li>
-    <li class="breadcrumb-item active">{% if not form.instance.pk %}Create {% else %}Edit  {{ form.instance.pk }}{% endif %}</li>
+    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active">Administration</li>
+    <li class="breadcrumb-item active">{% if not form.instance.pk %}Create {{ form.model|to_class_name }}{% else %}Edit {{ form.instance.pk }}{% endif %}</li>
 </ol>
 {% endblock %}
 

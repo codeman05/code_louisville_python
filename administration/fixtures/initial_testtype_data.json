@@ -1,0 +1,42 @@
+[ 
+  {
+    "model": "administration.testtype",
+    "pk": 1, 
+    "fields": {
+      "name": "Initial Efficiency",
+      "code": "IE",
+      "price": "",
+      "department": "Hvac Lab"
+    }
+  },
+  {
+    "model": "administration.testtype",
+    "pk": 2, 
+    "fields": {
+      "name": "Resistance Traverse",
+      "code": "RT",
+      "price": "",
+      "department": "Hvac Lab"
+    }
+  },
+  {
+    "model": "administration.testtype",
+    "pk": 3, 
+    "fields": {
+      "name": "EN-1822",
+      "code": "",
+      "price": "",
+      "department": "Special Projects Lab"
+    }
+  },
+  {
+    "model": "administration.testtype",
+    "pk": 4, 
+    "fields": {
+      "name": "Aramco",
+      "code": "",
+      "price": "",
+      "department": "Industrial Lab"
+    }
+  }
+]

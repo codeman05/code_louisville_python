@@ -8,9 +8,9 @@
 
 {% block breadcrumbs %}
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'home' %}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="#">Administration</a></li>
-    <li class="breadcrumb-item active">List - Add code to show data from models</li>
+    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active">Tables</li>
+    <li class="breadcrumb-item active">{{ object_list.model|to_class_name }}</li>
 </ol>
 {% endblock %}
 

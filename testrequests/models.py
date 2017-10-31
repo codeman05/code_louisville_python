@@ -1,32 +1,27 @@
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from django.db import models
-from django.conf import settings
 
-from . import qr_code
+from django.db import models
 from administration.models import TimeStamp, Customer, TestType
 
 
 class Filter(models.Model):
-    manufacturer = models.CharField(max_length=30)
-    model_number = models.CharField(max_length=30)
-    part_number = models.CharField(max_length=30, blank=True, null=True)
-    filter_type = models.CharField(max_length=30, blank=True, null=True)
-    date_code = models.CharField(max_length=30, blank=True, null=True)
-    nominal_height = models.PositiveIntegerField(blank=True, null=True, help_text='inches')
-    nominal_width = models.PositiveIntegerField(blank=True, null=True, help_text='inches')
-    nominal_depth = models.PositiveIntegerField(blank=True, null=True, help_text='inches')
-    pleat_quantity = models.PositiveIntegerField(blank=True, null=True)
-    pocket_quantity = models.PositiveIntegerField(blank=True, null=True)
-    media_type = models.CharField(max_length=30, blank=True, null=True)
-    adhesive_type = models.CharField(max_length=30, blank=True, null=True)
-    adhesive_amount = models.CharField(max_length=30, blank=True, null=True)
+    manufacturer = models.CharField(null=False, blank=False, max_length=30)
+    model_number = models.CharField(null=False, blank=False, max_length=30)
+    part_number = models.CharField(null=True, blank=True, max_length=30)
+    filter_type = models.CharField(null=True, blank=True, max_length=30)
+    date_code = models.CharField(null=True, blank=True, max_length=30)
+    nominal_height = models.PositiveIntegerField(null=True, blank=True, help_text='inches')
+    nominal_width = models.PositiveIntegerField(null=True, blank=True, help_text='inches')
+    nominal_depth = models.PositiveIntegerField(null=True, blank=True, help_text='inches')
+    pleat_quantity = models.PositiveIntegerField(null=True, blank=True)
+    pocket_quantity = models.PositiveIntegerField(null=True, blank=True)
+    media_type = models.CharField(null=True, blank=True, max_length=30)
+    adhesive_type = models.CharField(null=True, blank=True, max_length=30)
+    adhesive_amount = models.CharField(null=True, blank=True, max_length=30)
     disposal = models.BooleanField(default=False)
-    #barcode_number = models.CharField(default=qr_code.get_barcode, max_length=10, blank=True, null=True)
 
-    #location = '/static/barcodes/{}.png'.format(barcode_number)
-    #barcode_image = models.ImageField(default=location, blank=True, null=True)
-    #barcode_url = models.URLField(default=location, blank=True, null=True)
+    barcode_number = models.CharField(null=True, blank=True, max_length=10)
+    barcode_url = models.URLField(null=True, blank=True)
 
     class Meta:
         abstract = True
@@ -34,11 +29,12 @@ class Filter(models.Model):
 
 class Test(TimeStamp, Filter):
     customer = models.ForeignKey(Customer)
-    quote_number = models.CharField(max_length=30, blank=True, null=True)
-    po_number = models.CharField(max_length=30, blank=True, null=True)
-
     test_type = models.ForeignKey(TestType)
-    air_flow_rate = models.PositiveIntegerField()
+    quote_number = models.CharField(null=True, blank=True, max_length=30)
+    po_number = models.CharField(null=True, blank=True, max_length=30)
+    air_flow_rate = models.PositiveIntegerField(null=False, blank=False)
+
+    # Dust Holding Testing
     ISO_FINE = 'IF'
     ISO_COARSE = 'IC'
     ASHRAE = 'A'
@@ -47,26 +43,18 @@ class Test(TimeStamp, Filter):
         (ISO_COARSE, 'ISO Coarse'),
         (ASHRAE, 'ASHRAE'),
     )
-    test_dust = models.CharField(max_length=2, choices=TEST_DUST_CHOICES, null=True, blank=True)
-    final_resistance = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
-    dust_feed_rate = models.PositiveIntegerField(blank=True, null=True, help_text='(gms / MCF)')
-    initial_loading_pressure = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
-    hi_pulse_pressure = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
-    lo_pulse_pressure = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
-    pulse_ms_on = models.PositiveIntegerField(blank=True, null=True, help_text='in milliseconds')
-    pulse_ms_off = models.PositiveIntegerField(blank=True, null=True, help_text='in milliseconds')
-    pulse_pressure = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
-    not_to_exceed_pressure = models.PositiveIntegerField(blank=True, null=True, help_text='in W.G.')
+    test_dust = models.CharField(null=True, blank=True, choices=TEST_DUST_CHOICES, max_length=2)
+    final_resistance = models.PositiveIntegerField(null=True, blank=True, help_text='in W.G.')
+    dust_feed_rate = models.PositiveIntegerField(null=True, blank=True, help_text='(gms / MCF)')
 
-    def __str__(self):
-        if len(str(self.pk)) == 1:
-            return "17-000{}".format(self.pk)
-        if len(str(self.pk)) == 2:
-            return "17-00{}".format(self.pk)
-        if len(str(self.pk)) == 3:
-            return "17-0{}".format(self.pk)
-        if len(str(self.pk)) == 1:
-            return "17-{}".format(self.pk)
+    # Aramco Testing
+    initial_loading_pressure = models.PositiveIntegerField(null=True, help_text='in W.G.')
+    hi_pulse_pressure = models.PositiveIntegerField(null=True, blank=True, help_text='in W.G.')
+    lo_pulse_pressure = models.PositiveIntegerField(null=True, blank=True, help_text='in W.G.')
+    pulse_ms_on = models.PositiveIntegerField(null=True, blank=True, help_text='in milliseconds')
+    pulse_ms_off = models.PositiveIntegerField(null=True, blank=True, help_text='in milliseconds')
+    pulse_pressure = models.PositiveIntegerField(null=True, blank=True, help_text='in W.G.')
+    not_to_exceed_pressure = models.PositiveIntegerField(null=True, blank=True, help_text='in W.G.')
 
     def get_absolute_url(self):
         return reverse('tests:list')

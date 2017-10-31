@@ -7,20 +7,6 @@
         </a>
     </li>
 
-    <!-- Administration Links -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administration">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAdministration" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-lock"></i>
-            <span class="nav-link-text">Administration</span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseAdministration">
-            <li><a href="{% url 'administration:customer' %}">Create Customer</a></li>
-            <li><a href="{% url 'administration:test_type' %}">Create Test Type</a></li>
-            <li><a href="{% url 'administration:department' %}">Create Department</a></li>
-            <li><a href="{% url 'administration:employee' %}">Create Employee</a></li>
-        </ul>
-    </li>
-
     <!-- Orders Links -->
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseOrders" data-parent="#exampleAccordion">
@@ -47,6 +33,20 @@
         </ul>
     </li>
 
+    <!-- Administration Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administration">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAdministration" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-lock"></i>
+            <span class="nav-link-text">Administration</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseAdministration">
+            <li><a href="{% url 'administration:customer' %}">Create Customer</a></li>
+            <li><a href="{% url 'administration:test_type' %}">Create Test Type</a></li>
+            <li><a href="{% url 'administration:department' %}">Create Department</a></li>
+            <li><a href="{% url 'administration:employee' %}">Create Employee</a></li>
+        </ul>
+    </li>
+
     <!-- External Links -->
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="External Links">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExternalLinks" data-parent="#exampleAccordion">
@@ -60,17 +60,17 @@
         </ul>
     </li>
 
-    <!-- Customize Settings -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Customization Settings</span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li><a href="{% url 'customize' %}">Navbar</a></li>
-            <li><a href="#">Cards</a></li>
-        </ul>
-    </li>
+    <!--&lt;!&ndash; Customize Settings &ndash;&gt;-->
+    <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">-->
+        <!--<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">-->
+            <!--<i class="fa fa-fw fa-wrench"></i>-->
+            <!--<span class="nav-link-text">Customization Settings</span>-->
+        <!--</a>-->
+        <!--<ul class="sidenav-second-level collapse" id="collapseComponents">-->
+            <!--<li><a href="{% url 'customize' %}">Navbar</a></li>-->
+            <!--<li><a href="#">Cards</a></li>-->
+        <!--</ul>-->
+    <!--</li>-->
 </ul>
 
 <!-- Navigation Expand/Collapse Button -->
