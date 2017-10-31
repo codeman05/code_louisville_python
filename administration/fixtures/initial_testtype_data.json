@@ -3,9 +3,11 @@
     "model": "administration.testtype",
     "pk": 1, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "name": "Initial Efficiency",
-      "code": "IE",
-      "price": "",
+      "code": "",
+      "price": "150",
       "department": "Hvac Lab"
     }
   },
@@ -13,6 +15,8 @@
     "model": "administration.testtype",
     "pk": 2, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "name": "Resistance Traverse",
       "code": "RT",
       "price": "",
@@ -23,6 +27,8 @@
     "model": "administration.testtype",
     "pk": 3, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "name": "EN-1822",
       "code": "",
       "price": "",
@@ -33,6 +39,8 @@
     "model": "administration.testtype",
     "pk": 4, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "name": "Aramco",
       "code": "",
       "price": "",

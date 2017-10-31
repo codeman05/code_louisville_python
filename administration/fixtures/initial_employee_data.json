@@ -3,6 +3,8 @@
     "model": "administration.employee",
     "pk": 1, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Industrial Lab",
       "first_name": "Joe",
       "last_name": "Koenig",
@@ -14,6 +16,8 @@
     "model": "administration.employee",
     "pk": 2, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Operations",
       "first_name": "Connie",
       "last_name": "Burkhead",
@@ -25,6 +29,8 @@
     "model": "administration.employee",
     "pk": 3, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Operations",
       "first_name": "Raven",
       "last_name": "Thomas",
@@ -36,6 +42,8 @@
     "model": "administration.employee",
     "pk": 4, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "HVAC Lab",
       "first_name": "Doug",
       "last_name": "Pfeiffer",
@@ -47,6 +55,8 @@
     "model": "administration.employee",
     "pk": 5, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Operations",
       "first_name": "Bob",
       "last_name": "Burkhead",
@@ -58,6 +68,8 @@
     "model": "administration.employee",
     "pk": 6, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Special Projects Lab",
       "first_name": "Glen",
       "last_name": "Toloczko",
@@ -69,6 +81,8 @@
     "model": "administration.employee",
     "pk": 7, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Special Projects Lab",
       "first_name": "Evan",
       "last_name": "Sparks",
@@ -80,6 +94,8 @@
     "model": "administration.employee",
     "pk": 8, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Special Projects Lab",
       "first_name": "Tyler",
       "last_name": "Shoulders",
@@ -91,6 +107,8 @@
     "model": "administration.employee",
     "pk": 9, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Operations",
       "first_name": "Kenneth",
       "last_name": "Brown",
@@ -102,6 +120,8 @@
     "model": "administration.employee",
     "pk": 10, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Special Projects Lab",
       "first_name": "Nick",
       "last_name": "Toloczko",
@@ -113,6 +133,8 @@
     "model": "administration.employee",
     "pk": 11, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Hvac Lab",
       "first_name": "Bobby",
       "last_name": "Singer",
@@ -135,6 +157,8 @@
     "model": "administration.employee",
     "pk": 13, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Hvac Lab",
       "first_name": "Jack",
       "last_name": "State",
@@ -146,6 +170,8 @@
     "model": "administration.employee",
     "pk": 14, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Hvac Lab",
       "first_name": "Tom",
       "last_name": "Singer",
@@ -157,6 +183,8 @@
     "model": "administration.employee",
     "pk": 15, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Industrial Lab",
       "first_name": "Casey",
       "last_name": "Powell",
@@ -168,11 +196,13 @@
     "model": "administration.employee",
     "pk": 16, 
     "fields": {
+      "created": "2017-10-30 19:30",
+      "modified": "2017-10-30 19:30",
       "department": "Special Projects Lab",
       "first_name": "Kevin",
       "last_name": "Singer",
       "email": "kevin@blueheaventech.com",
       "phone": "502-555-1616"
     }
-  },
+  }
 ]

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load administration_extras %}
+
+{% block page_title %}Delete {{ test.pk|format_job_number }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form" method="POST" action="">
+        {% csrf_token %}
+        <p>This action will delete the record from the database. </p>
+        <p>This cannot be undone.</p>
+        <p>Are you sure you want to delete {{ test.pk|format_job_number }}?</p>
+        <input type="submit" class="btn btn-danger" value="Yes"><a href="{% url 'administration:test_request_list' %}" class="btn btn-info">No</a>
+    </form>
+</div>
+{% endblock %}

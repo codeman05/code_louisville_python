@@ -7,25 +7,26 @@
         </a>
     </li>
 
-    <!-- Orders Links -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseOrders" data-parent="#exampleAccordion">
+    <!-- Job Queue Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Job Queue">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseJobQueue" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-shopping-cart"></i>
-            <span class="nav-link-text">Orders</span>
+            <span class="nav-link-text">Job Queue</span>
         </a>
-        <ul class="sidenav-second-level collapse" id="collapseOrders">
-            <li><a href="{% url 'tests:create' %}">New</a></li>
-            <li><a href="{% url 'tests:list' %}">Database</a></li>
+        <ul class="sidenav-second-level collapse" id="collapseJobQueue">
+            <li><a href="#">Coming Later...</a></li>
+            <li><a href="#">Coming Later...</a></li>
         </ul>
     </li>
 
-    <!-- Tables Links -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTables" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+    <!-- Lists Links -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lists">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseLists" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-list"></i>
+            <span class="nav-link-text">Lists</span>
         </a>
-        <ul class="sidenav-second-level collapse" id="collapseTables">
+        <ul class="sidenav-second-level collapse" id="collapseLists">
+            <li><a href="{% url 'administration:test_request_list' %}">Test Requests</a></li>
             <li><a href="{% url 'administration:department_list' %}">Departments</a></li>
             <li><a href="{% url 'administration:employee_list' %}">Employees</a></li>
             <li><a href="{% url 'administration:customer_list' %}">Customers</a></li>
@@ -40,6 +41,7 @@
             <span class="nav-link-text">Administration</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseAdministration">
+            <li><a href="{% url 'administration:test_request' %}">Create Test Request</a></li>
             <li><a href="{% url 'administration:customer' %}">Create Customer</a></li>
             <li><a href="{% url 'administration:test_type' %}">Create Test Type</a></li>
             <li><a href="{% url 'administration:department' %}">Create Department</a></li>
@@ -54,9 +56,10 @@
             <span class="nav-link-text">External Links</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseExternalLinks">
-            <li><a href="#">Document Library</a></li>
-            <li><a href="#">Help Desk</a></li>
-            <li><a href="#">Website</a></li>
+            <li><a href="http://bht-docs.local:8080">Document Library</a></li>
+            <li><a href="http://bht-servicedesk.local:8080">Help Desk</a></li>
+            <li><a href="http://www.blueheaventech.com">Website</a></li>
+            <li><a href="https://outlook.office.com/owa">Outlook</a></li>
         </ul>
     </li>
 

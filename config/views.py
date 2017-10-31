@@ -1,8 +1,8 @@
 from django.views.generic import ListView, TemplateView
 from django_tables2 import RequestConfig
 
-from testrequests import models
-from testrequests import tables
+from administration import models
+from administration import tables
 
 
 class DashboardListView(ListView):

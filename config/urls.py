@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.DashboardListView.as_view(), name='dashboard'),
     url(r'^customize-site/$', views.CustomizeSettingsTemplateView.as_view(), name='customize'),
-    url(r'^test-requests/', include('testrequests.urls', namespace='tests')),
     url(r'^administration/', include('administration.urls', namespace='administration')),
 ]
