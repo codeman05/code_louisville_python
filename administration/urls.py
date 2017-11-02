@@ -22,11 +22,11 @@ urlpatterns = [
     #                                                                      #
     ########################################################################
 
-    url(r'employee/list/$', views.EmployeeListView.as_view(), name='employee_list'),
-    url(r'department/list/$', views.DepartmentListView.as_view(), name='department_list'),
-    url(r'customer/list/$', views.CustomerListView.as_view(), name='customer_list'),
-    url(r'test-type/list/$', views.TestTypeListView.as_view(), name='test_type_list'),
-    url('^test-request/list/$', views.TestListView.as_view(), name='test_request_list'),
+    url(r'employees/list/$', views.EmployeeListView.as_view(), name='employee_list'),
+    url(r'departments/list/$', views.DepartmentListView.as_view(), name='department_list'),
+    url(r'customers/list/$', views.CustomerListView.as_view(), name='customer_list'),
+    url(r'test-types/list/$', views.TestTypeListView.as_view(), name='test_type_list'),
+    url('^test-requests/list/$', views.TestListView.as_view(), name='test_request_list'),
 
 
     ########################################################################

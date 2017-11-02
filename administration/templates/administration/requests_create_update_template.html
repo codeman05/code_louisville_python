@@ -2,17 +2,9 @@
 {% load crispy_forms_tags %}
 {% load administration_extras %}
 
-{% block title %}{% if not form.instance.pk %}Create Test Request{% else %}Edit Job {{ form.instance.pk|format_job_number }}{% endif %}{% endblock %}
+{% block title %}{% if not form.instance.pk %}Create Test Request{% else %}Update {{ form.instance.pk|format_job_number }}{% endif %}{% endblock %}
 
-{% block breadcrumbs %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Administration</li>
-    <li class="breadcrumb-item active">{% if not form.instance.pk %}Create Test Request{% else %}Edit Job {{ form.instance.pk|format_job_number }}{% endif %}</li>
-</ol>
-{% endblock %}
-
-{% block page_title %}{% if not form.instance.pk %}Create Test Request{% else %}Edit Job {{ form.instance.pk|format_job_number }}{% endif %}{% endblock %}
+{% block page_title %}{% if not form.instance.pk %}Create Test Request{% else %}Update {{ form.instance.pk|format_job_number }}{% endif %}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -20,7 +12,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         {% if form.instance.pk %}
-            <input type="submit" value="Update" class="btn btn-success">
+            <input type="submit" value="Update" class="btn btn-warning">
             <a href="{% url 'administration:delete_test_request' pk=form.instance.pk %}" class="btn btn-danger">Delete</a>
             <a href="{% url 'administration:test_request_list' %}" class="btn btn-info">Cancel</a>
         {% else %}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_tables2',
     'administration',
+    'barcode',
 ]
 
 MIDDLEWARE = [

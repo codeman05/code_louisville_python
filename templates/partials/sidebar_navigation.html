@@ -7,17 +7,29 @@
         </a>
     </li>
 
-    <!-- Job Queue Links -->
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Job Queue">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseJobQueue" data-parent="#exampleAccordion">
+    <!-- Test Request Link -->
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Test Request">
+        <a class="nav-link" href="{% url 'administration:test_request' %}">
             <i class="fa fa-fw fa-shopping-cart"></i>
-            <span class="nav-link-text">Job Queue</span>
+            <span class="nav-link-text">New Test Request</span>
         </a>
-        <ul class="sidenav-second-level collapse" id="collapseJobQueue">
-            <li><a href="#">Coming Later...</a></li>
-            <li><a href="#">Coming Later...</a></li>
-        </ul>
     </li>
+
+    <!--&lt;!&ndash; Barcode Link &ndash;&gt;-->
+    <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Barcode">-->
+        <!--<a class="nav-link" href="{% url 'barcode:home' %}">-->
+            <!--<i class="fa fa-fw fa-qrcode"></i>-->
+            <!--<span class="nav-link-text">Generate Barcode</span>-->
+        <!--</a>-->
+    <!--</li>-->
+
+    <!--&lt;!&ndash; Filter Queue Link &ndash;&gt;-->
+    <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Filter Queue">-->
+        <!--<a class="nav-link" href="#">-->
+            <!--<i class="fa fa-fw fa-hourglass-start"></i>-->
+            <!--<span class="nav-link-text">Filter Queue</span>-->
+        <!--</a>-->
+    <!--</li>-->
 
     <!-- Lists Links -->
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lists">
@@ -26,11 +38,10 @@
             <span class="nav-link-text">Lists</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseLists">
-            <li><a href="{% url 'administration:test_request_list' %}">Test Requests</a></li>
-            <li><a href="{% url 'administration:department_list' %}">Departments</a></li>
-            <li><a href="{% url 'administration:employee_list' %}">Employees</a></li>
             <li><a href="{% url 'administration:customer_list' %}">Customers</a></li>
             <li><a href="{% url 'administration:test_type_list' %}">Test Types</a></li>
+            <li><a href="{% url 'administration:department_list' %}">Departments</a></li>
+            <li><a href="{% url 'administration:employee_list' %}">Employees</a></li>
         </ul>
     </li>
 
@@ -41,7 +52,6 @@
             <span class="nav-link-text">Administration</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseAdministration">
-            <li><a href="{% url 'administration:test_request' %}">Create Test Request</a></li>
             <li><a href="{% url 'administration:customer' %}">Create Customer</a></li>
             <li><a href="{% url 'administration:test_type' %}">Create Test Type</a></li>
             <li><a href="{% url 'administration:department' %}">Create Department</a></li>
@@ -56,10 +66,11 @@
             <span class="nav-link-text">External Links</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseExternalLinks">
-            <li><a href="http://bht-docs.local:8080">Document Library</a></li>
-            <li><a href="http://bht-servicedesk.local:8080">Help Desk</a></li>
-            <li><a href="http://www.blueheaventech.com">Website</a></li>
-            <li><a href="https://outlook.office.com/owa">Outlook</a></li>
+            <li><a href="http://bht-docs.local:8080" target="_blank">Document Library</a></li>
+            <li><a href="http://bht-servicedesk.local:8080" target="_blank">Help Desk</a></li>
+            <li><a href="http://www.blueheaventech.com" target="_blank">Website</a></li>
+            <li><a href="https://outlook.office.com/owa" target="_blank">Outlook</a></li>
+            <li><a href="https://bht-cloud.local/" target="_blank">Cloud</a></li>
         </ul>
     </li>
 

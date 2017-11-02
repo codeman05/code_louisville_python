@@ -4,17 +4,9 @@
 {% load administration_extras %}
 {% load static %}
 
-{% block title %}{{ object_list.model|to_class_name }}{% endblock %}
+{% block title %}{{ model_name }}s{% endblock %}
 
-{% block breadcrumbs %}
-<ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Lists</li>
-    <li class="breadcrumb-item active">{{ object_list.model|to_class_name }}</li>
-</ol>
-{% endblock %}
-
-{% block page_title %} {{ object_list.model|to_class_name }} {% endblock %}
+{% block page_title %} {{ model_name }}s{% endblock %}
 
 {% block content %}
 <div class="container">

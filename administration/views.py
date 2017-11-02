@@ -25,6 +25,12 @@ class CreateEmployeeView(CreateView):
         'department',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateEmployeeView, self).get_context_data(**kwargs)
+        model_name = models.Employee.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class CreateDepartmentView(CreateView):
     model = models.Department
@@ -33,6 +39,12 @@ class CreateDepartmentView(CreateView):
         'name',
         'manager',
     )
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateDepartmentView, self).get_context_data(**kwargs)
+        model_name = models.Department.__name__
+        context['model_name'] = model_name
+        return context
 
 
 class CreateCustomerView(CreateView):
@@ -47,6 +59,12 @@ class CreateCustomerView(CreateView):
         'phone',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateCustomerView, self).get_context_data(**kwargs)
+        model_name = models.Customer.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class CreateTestTypeView(CreateView):
     model = models.TestType
@@ -58,26 +76,22 @@ class CreateTestTypeView(CreateView):
         'department',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateTestTypeView, self).get_context_data(**kwargs)
+        model_name = 'Test Type'
+        context['model_name'] = model_name
+        return context
+
 
 class TestCreateView(CreateView):
     model = models.Test
     template_name = 'administration/requests_create_update_template.html'
     fields = (
         'customer',
-        'quote_number',
-        'po_number',
         'test_type',
         'air_flow_rate',
-        'test_dust',
-        'final_resistance',
-        'dust_feed_rate',
-        'initial_loading_pressure',
-        'hi_pulse_pressure',
-        'lo_pulse_pressure',
-        'pulse_ms_on',
-        'pulse_ms_off',
-        'pulse_pressure',
-        'not_to_exceed_pressure',
+        'quote_number',
+        'po_number',
         'manufacturer',
         'model_number',
         'part_number',
@@ -92,7 +106,24 @@ class TestCreateView(CreateView):
         'adhesive_type',
         'adhesive_amount',
         'disposal',
+        'test_dust',
+        'final_resistance',
+        'dust_feed_rate',
+        'initial_loading_pressure',
+        'hi_pulse_pressure',
+        'lo_pulse_pressure',
+        'pulse_ms_on',
+        'pulse_ms_off',
+        'pulse_pressure',
+        'not_to_exceed_pressure',
+        'location',
     )
+
+    def get_context_data(self, **kwargs):
+        context = super(TestCreateView, self).get_context_data(**kwargs)
+        model_name = models.Test.__name__
+        context['model_name'] = model_name
+        return context
 
 
 ########################################################################
@@ -108,6 +139,8 @@ class EmployeeListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
+        model_name = models.Employee.__name__
+        context['model_name'] = model_name
         table = tables.EmployeeTable(models.Employee.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
@@ -120,6 +153,8 @@ class DepartmentListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentListView, self).get_context_data(**kwargs)
+        model_name = models.Department.__name__
+        context['model_name'] = model_name
         table = tables.DepartmentTable(models.Department.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
@@ -132,6 +167,8 @@ class CustomerListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CustomerListView, self).get_context_data(**kwargs)
+        model_name = models.Customer.__name__
+        context['model_name'] = model_name
         table = tables.CustomerTable(models.Customer.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
@@ -144,6 +181,7 @@ class TestTypeListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TestTypeListView, self).get_context_data(**kwargs)
+        context['model_name'] = 'Test Type'
         table = tables.TestTypeTable(models.TestType.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
@@ -180,6 +218,12 @@ class EmployeeUpdateView(UpdateView):
         'department',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(EmployeeUpdateView, self).get_context_data(**kwargs)
+        model_name = models.Employee.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class DepartmentUpdateView(UpdateView):
     model = models.Department
@@ -188,6 +232,12 @@ class DepartmentUpdateView(UpdateView):
         'name',
         'manager',
     )
+
+    def get_context_data(self, **kwargs):
+        context = super(DepartmentUpdateView, self).get_context_data(**kwargs)
+        model_name = models.Department.__name__
+        context['model_name'] = model_name
+        return context
 
 
 class CustomerUpdateView(UpdateView):
@@ -202,6 +252,12 @@ class CustomerUpdateView(UpdateView):
         'phone',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(CustomerUpdateView, self).get_context_data(**kwargs)
+        model_name = models.Customer.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class TestTypeUpdateView(UpdateView):
     model = models.TestType
@@ -213,26 +269,22 @@ class TestTypeUpdateView(UpdateView):
         'department',
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(TestTypeUpdateView, self).get_context_data(**kwargs)
+        model_name = 'Test Type'
+        context['model_name'] = model_name
+        return context
+
 
 class TestUpdateView(UpdateView):
     model = models.Test
     template_name = 'administration/requests_create_update_template.html'
     fields = (
         'customer',
-        'quote_number',
-        'po_number',
         'test_type',
         'air_flow_rate',
-        'test_dust',
-        'final_resistance',
-        'dust_feed_rate',
-        'initial_loading_pressure',
-        'hi_pulse_pressure',
-        'lo_pulse_pressure',
-        'pulse_ms_on',
-        'pulse_ms_off',
-        'pulse_pressure',
-        'not_to_exceed_pressure',
+        'quote_number',
+        'po_number',
         'manufacturer',
         'model_number',
         'part_number',
@@ -247,7 +299,25 @@ class TestUpdateView(UpdateView):
         'adhesive_type',
         'adhesive_amount',
         'disposal',
+        'test_dust',
+        'final_resistance',
+        'dust_feed_rate',
+        'initial_loading_pressure',
+        'hi_pulse_pressure',
+        'lo_pulse_pressure',
+        'pulse_ms_on',
+        'pulse_ms_off',
+        'pulse_pressure',
+        'not_to_exceed_pressure',
+        'location',
+        'barcode_number',
     )
+
+    def get_context_data(self, **kwargs):
+        context = super(TestUpdateView, self).get_context_data(**kwargs)
+        model_name = models.Test.__name__
+        context['model_name'] = model_name
+        return context
 
 
 ########################################################################
@@ -262,11 +332,23 @@ class DeleteEmployeeView(DeleteView):
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:employee_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        model_name = models.Employee.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class DeleteDepartmentView(DeleteView):
     model = models.Department
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:department_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        model_name = models.Department.__name__
+        context['model_name'] = model_name
+        return context
 
 
 class DeleteCustomerView(DeleteView):
@@ -274,11 +356,23 @@ class DeleteCustomerView(DeleteView):
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:customer_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        model_name = models.Customer.__name__
+        context['model_name'] = model_name
+        return context
+
 
 class DeleteTestTypeView(DeleteView):
     model = models.TestType
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:test_type_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        model_name = 'Test Type'
+        context['model_name'] = model_name
+        return context
 
 
 class TestDeleteView(DeleteView):

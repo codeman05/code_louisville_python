@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
+{% load administration_extras %}
+
+{% block page_title %}Delete {{ model_name }} {% endblock %}
 
 {% block content %}
-<h1>Delete {{ object.pk }}</h1>
-
-<form class="form" method="POST">
-    {% csrf_token %}
-    <input type="submit" class="btn btn-danger" value="Delete"><a href="#">Cancel</a>
-</form>
+<div class="container">
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <p>This action will delete the {{ model_name|lower }} from the database. This cannot be undone.</p>
+        <p><b>Are you sure you want to proceed?</b></p>
+        <input type="submit" class="btn btn-danger" value="Yes">
+        {% if model_name|lower == 'employee' %}
+            <a href="{% url 'administration:employee_list' %}" class="btn btn-info">No</a>
+        {% elif model_name|lower == 'department' %}
+            <a href="{% url 'administration:department_list' %}" class="btn btn-info">Cancel</a>
+        {% elif model_name|lower == 'customer' %}
+            <a href="{% url 'administration:customer_list' %}" class="btn btn-info">Cancel</a>
+        {% elif model_name|lower == 'test type' %}
+            <a href="{% url 'administration:test_type_list' %}" class="btn btn-info">Cancel</a>
+        {% endif %}
+    </form>
+</div>
 {% endblock %}

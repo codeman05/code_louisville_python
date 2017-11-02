@@ -11,7 +11,6 @@ from . import models
 
 
 attrs_setting = {'id': 'dataTable', 'class': 'table table-bordered', 'width': '100%', 'cellspacing': '0'}
-empty_text_setting = 'There are no results matching the search criteria'
 
 
 class EmployeeTable(tables.Table):
@@ -20,19 +19,17 @@ class EmployeeTable(tables.Table):
     allow editing or deleting a record.  The id field was chosen for this task.
     """
 
-    id = tables.LinkColumn('administration:update_employee', args=[A('pk')])
+    first_name = tables.LinkColumn('administration:update_employee', args=[A('pk')])
 
     class Meta:
         model = models.Employee
         fields = (
-            'id',
             'first_name',
             'last_name',
             'department',
             'email',
         )
         attrs = attrs_setting
-        empty_text = empty_text_setting
 
 
 class DepartmentTable(tables.Table):
@@ -41,12 +38,11 @@ class DepartmentTable(tables.Table):
     allow editing or deleting a record.  The id field was chosen for this task.
     """
 
-    id = tables.LinkColumn('administration:update_department', args=[A('pk')])
+    name = tables.LinkColumn('administration:update_department', args=[A('pk')])
 
     class Meta:
         model = models.Department
         fields = (
-            'id',
             'name',
             'manager',
         )
@@ -59,12 +55,11 @@ class CustomerTable(tables.Table):
     allow editing or deleting a record.  The id field was chosen for this task.
     """
 
-    id = tables.LinkColumn('administration:update_customer', args=[A('pk')])
+    company = tables.LinkColumn('administration:update_customer', args=[A('pk')])
 
     class Meta:
         model = models.Customer
         fields = (
-            'id',
             'company',
             'first_name',
             'last_name',
@@ -81,12 +76,11 @@ class TestTypeTable(tables.Table):
     allow editing or deleting a record.  The id field was chosen for this task.
     """
 
-    id = tables.LinkColumn('administration:update_test_type', args=[A('pk')])
+    name = tables.LinkColumn('administration:update_test_type', args=[A('pk')])
 
     class Meta:
         model = models.TestType
         fields = (
-            'id',
             'name',
             'code',
             'price',
@@ -103,16 +97,17 @@ class TestRequestsTable(tables.Table):
 
     id = tables.LinkColumn('administration:update_test_request', args=[A('pk')])
 
+    customer = tables.LinkColumn('administration:customer_list')
+
     class Meta:
         model = models.Test
         fields = (
             'id',
             'customer',
-            'quote_number',
-            'po_number',
             'test_type',
             'air_flow_rate',
             'manufacturer',
             'barcode_number',
+            'location',
         )
         attrs = {'id': 'dataTable', 'class': 'table table-bordered', 'width': '100%', 'cellspacing': '0'}

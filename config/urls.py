@@ -21,6 +21,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.DashboardListView.as_view(), name='dashboard'),
-    url(r'^customize-site/$', views.CustomizeSettingsTemplateView.as_view(), name='customize'),
+    url(r'^customize-site/', views.CustomizeSettingsTemplateView.as_view(), name='customize'),
     url(r'^administration/', include('administration.urls', namespace='administration')),
+    url(r'generate-barcode/', include('barcode.urls', namespace='barcode')),
 ]

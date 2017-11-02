@@ -1,8 +1,18 @@
 .container-fluid {
     margin-bottom: 40px;
 }
-
+.page-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.btn {
+    margin-top: 10px;
+    margin-right: 10px;
+}
 input[type="submit"]:hover {
     cursor: pointer;
+}
+i {
+    margin-right: 7.5px;
 }
 
