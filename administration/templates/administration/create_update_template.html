@@ -2,9 +2,9 @@
 {% load crispy_forms_tags %}
 {% load administration_extras %}
 
-{% block title %}{% if not form.instance.pk %}Create {{ model_name }} {% else %}Update {{ model_name }}{% endif %}{% endblock %}
+{% block title %} {% if not form.instance.pk %} Create {% else %} Update {% endif %} {{ page_title }} {% endblock %}
 
-{% block page_title %}{% if not form.instance.pk %}Create {{ model_name }} {% else %}Update {{ model_name }}{% endif %}{% endblock %}
+{% block page_title %} {% if not form.instance.pk %} Create {% else %} Update {% endif %} {{ page_title }} {% endblock %}
 
 {% block content %}
 <div class="container">
@@ -14,16 +14,16 @@
         {% if form.instance.pk %}
             <div class="text-left">
                 <input type="submit" value="Update" class="btn btn-warning">
-                {% if model_name|lower == 'employee' %}
+                {% if page_title|lower == 'employee' %}
                     <a href="{% url 'administration:delete_employee' pk=form.instance.pk %}" class="btn btn-danger">Delete</a>
                     <a href="{% url 'administration:employee_list' %}" class="btn btn-info">Cancel</a>
-                {% elif model_name|lower == 'department' %}
+                {% elif page_title|lower == 'department' %}
                     <a href="{% url 'administration:delete_department' pk=form.instance.pk %}" class="btn btn-danger">Delete</a>
                     <a href="{% url 'administration:department_list' %}" class="btn btn-info">Cancel</a>
-                {% elif model_name|lower == 'customer' %}
+                {% elif page_title|lower == 'customer' %}
                     <a href="{% url 'administration:delete_customer' pk=form.instance.pk %}" class="btn btn-danger">Delete</a>
                     <a href="{% url 'administration:customer_list' %}" class="btn btn-info">Cancel</a>
-                {% elif model_name|lower == 'test type' %}
+                {% elif page_title|lower == 'test type' %}
                     <a href="{% url 'administration:delete_test_type' pk=form.instance.pk %}" class="btn btn-danger">Delete</a>
                     <a href="{% url 'administration:test_type_list' %}" class="btn btn-info">Cancel</a>
                 {% endif %}

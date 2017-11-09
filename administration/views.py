@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django_tables2 import RequestConfig
 
-
 from . import models
 from . import tables
+from . import mixins
 
 
 ########################################################################
@@ -14,8 +15,9 @@ from . import tables
 ########################################################################
 
 
-class CreateEmployeeView(CreateView):
+class CreateEmployeeView(LoginRequiredMixin, mixins.PageTitleMixin, CreateView):
     model = models.Employee
+    page_title = "Employee"
     template_name = 'administration/create_update_template.html'
     fields = (
         'first_name',
@@ -25,30 +27,20 @@ class CreateEmployeeView(CreateView):
         'department',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateEmployeeView, self).get_context_data(**kwargs)
-        model_name = models.Employee.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class CreateDepartmentView(CreateView):
+class CreateDepartmentView(LoginRequiredMixin, mixins.PageTitleMixin, CreateView):
     model = models.Department
+    page_title = "Department"
     template_name = 'administration/create_update_template.html'
     fields = (
         'name',
         'manager',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateDepartmentView, self).get_context_data(**kwargs)
-        model_name = models.Department.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class CreateCustomerView(CreateView):
+class CreateCustomerView(LoginRequiredMixin, mixins.PageTitleMixin, CreateView):
     model = models.Customer
+    page_title = "Customer"
     template_name = 'administration/create_update_template.html'
     fields = (
         'company',
@@ -59,15 +51,10 @@ class CreateCustomerView(CreateView):
         'phone',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateCustomerView, self).get_context_data(**kwargs)
-        model_name = models.Customer.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class CreateTestTypeView(CreateView):
+class CreateTestTypeView(LoginRequiredMixin, mixins.PageTitleMixin, CreateView):
     model = models.TestType
+    page_title = "Test Type"
     template_name = 'administration/create_update_template.html'
     fields = (
         'name',
@@ -75,12 +62,6 @@ class CreateTestTypeView(CreateView):
         'price',
         'department',
     )
-
-    def get_context_data(self, **kwargs):
-        context = super(CreateTestTypeView, self).get_context_data(**kwargs)
-        model_name = 'Test Type'
-        context['model_name'] = model_name
-        return context
 
 
 class TestCreateView(CreateView):
@@ -133,55 +114,52 @@ class TestCreateView(CreateView):
 ########################################################################
 
 
-class EmployeeListView(ListView):
+class EmployeeListView(mixins.PageTitleMixin, ListView):
     model = models.Employee
+    page_title = "Employees"
     template_name = 'administration/list_view_template.html'
 
     def get_context_data(self, **kwargs):
-        context = super(EmployeeListView, self).get_context_data(**kwargs)
-        model_name = models.Employee.__name__
-        context['model_name'] = model_name
+        context = super().get_context_data(**kwargs)
         table = tables.EmployeeTable(models.Employee.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
         return context
 
 
-class DepartmentListView(ListView):
+class DepartmentListView(mixins.PageTitleMixin, ListView):
     model = models.Department
+    page_title = "Departments"
     template_name = 'administration/list_view_template.html'
 
     def get_context_data(self, **kwargs):
-        context = super(DepartmentListView, self).get_context_data(**kwargs)
-        model_name = models.Department.__name__
-        context['model_name'] = model_name
+        context = super().get_context_data(**kwargs)
         table = tables.DepartmentTable(models.Department.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
         return context
 
 
-class CustomerListView(ListView):
+class CustomerListView(mixins.PageTitleMixin, ListView):
     model = models.Customer
+    page_title = "Customers"
     template_name = 'administration/list_view_template.html'
 
     def get_context_data(self, **kwargs):
-        context = super(CustomerListView, self).get_context_data(**kwargs)
-        model_name = models.Customer.__name__
-        context['model_name'] = model_name
+        context = super().get_context_data(**kwargs)
         table = tables.CustomerTable(models.Customer.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
         return context
 
 
-class TestTypeListView(ListView):
+class TestTypeListView(mixins.PageTitleMixin, ListView):
     model = models.TestType
+    page_title = "Test Types"
     template_name = 'administration/list_view_template.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TestTypeListView, self).get_context_data(**kwargs)
-        context['model_name'] = 'Test Type'
+        context = super().get_context_data(**kwargs)
         table = tables.TestTypeTable(models.TestType.objects.all())
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
@@ -207,8 +185,9 @@ class TestListView(ListView):
 ########################################################################
 
 
-class EmployeeUpdateView(UpdateView):
+class EmployeeUpdateView(LoginRequiredMixin, mixins.PageTitleMixin, UpdateView):
     model = models.Employee
+    page_title = "Employee"
     template_name = 'administration/create_update_template.html'
     fields = (
         'first_name',
@@ -218,30 +197,20 @@ class EmployeeUpdateView(UpdateView):
         'department',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(EmployeeUpdateView, self).get_context_data(**kwargs)
-        model_name = models.Employee.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class DepartmentUpdateView(UpdateView):
+class DepartmentUpdateView(LoginRequiredMixin, mixins.PageTitleMixin, UpdateView):
     model = models.Department
+    page_title = "Department"
     template_name = 'administration/create_update_template.html'
     fields = (
         'name',
         'manager',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(DepartmentUpdateView, self).get_context_data(**kwargs)
-        model_name = models.Department.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class CustomerUpdateView(UpdateView):
+class CustomerUpdateView(LoginRequiredMixin, mixins.PageTitleMixin, UpdateView):
     model = models.Customer
+    page_title = "Customer"
     template_name = 'administration/create_update_template.html'
     fields = (
         'company',
@@ -252,15 +221,10 @@ class CustomerUpdateView(UpdateView):
         'phone',
     )
 
-    def get_context_data(self, **kwargs):
-        context = super(CustomerUpdateView, self).get_context_data(**kwargs)
-        model_name = models.Customer.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class TestTypeUpdateView(UpdateView):
+class TestTypeUpdateView(LoginRequiredMixin, mixins.PageTitleMixin, UpdateView):
     model = models.TestType
+    page_title = "Test Type"
     template_name = 'administration/create_update_template.html'
     fields = (
         'name',
@@ -268,12 +232,6 @@ class TestTypeUpdateView(UpdateView):
         'price',
         'department',
     )
-
-    def get_context_data(self, **kwargs):
-        context = super(TestTypeUpdateView, self).get_context_data(**kwargs)
-        model_name = 'Test Type'
-        context['model_name'] = model_name
-        return context
 
 
 class TestUpdateView(UpdateView):
@@ -327,52 +285,32 @@ class TestUpdateView(UpdateView):
 ########################################################################
 
 
-class DeleteEmployeeView(DeleteView):
+class DeleteEmployeeView(LoginRequiredMixin, mixins.PageTitleMixin, DeleteView):
     model = models.Employee
+    page_title = "Employee"
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:employee_list')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        model_name = models.Employee.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class DeleteDepartmentView(DeleteView):
+class DeleteDepartmentView(LoginRequiredMixin, mixins.PageTitleMixin, DeleteView):
     model = models.Department
+    page_title = "Department"
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:department_list')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        model_name = models.Department.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class DeleteCustomerView(DeleteView):
+class DeleteCustomerView(LoginRequiredMixin, mixins.PageTitleMixin, DeleteView):
     model = models.Customer
+    page_title = "Customer"
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:customer_list')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        model_name = models.Customer.__name__
-        context['model_name'] = model_name
-        return context
 
-
-class DeleteTestTypeView(DeleteView):
+class DeleteTestTypeView(LoginRequiredMixin, mixins.PageTitleMixin, DeleteView):
     model = models.TestType
+    page_title = "Test Type"
     template_name = 'administration/confirm_delete_template.html'
     success_url = reverse_lazy('administration:test_type_list')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        model_name = 'Test Type'
-        context['model_name'] = model_name
-        return context
 
 
 class TestDeleteView(DeleteView):
