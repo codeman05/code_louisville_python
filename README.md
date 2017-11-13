@@ -8,4 +8,4 @@ This site will, hopefully, demonstrate some of the knowledge I have learned usin
 
 ## Requirements
 The website is hosted on PythonAnywhere to facilitate the grading of the project.  It can be accessed [here](http://kenneth.pythonanywhere.com).
-All code with the exception of a secret_settings file which holds some confidential is hosted on this GitHub account.
+All code with the exception of a secret_settings file which holds some confidential information is hosted on this GitHub account.
